@@ -16,6 +16,7 @@
 
   <modules>
     <module>javademo-springquickstart</module>
+    <module>javademo-springmvc-webapiquickstart</module>
   </modules>
 
   <dependencies>
