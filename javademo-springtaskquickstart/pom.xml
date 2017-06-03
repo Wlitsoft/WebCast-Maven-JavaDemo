@@ -11,12 +11,6 @@
     </parent>
 
     <groupId>com.wlitsoft</groupId>
-    <artifactId>javademo-springquickstart</artifactId>
+    <artifactId>javademo-springtaskquickstart</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
-
-    <dependencies>
-
-    </dependencies>
-    
 </project>
