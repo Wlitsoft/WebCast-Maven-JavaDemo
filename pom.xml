@@ -14,12 +14,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>4.3.6.RELEASE</spring.version>
     <javax.servlet.version>3.1.0</javax.servlet.version>
+    <spring-aop.version>4.3.9.RELEASE</spring-aop.version>
   </properties>
 
   <modules>
     <module>javademo-springquickstart</module>
     <module>javademo-springmvc-webapiquickstart</module>
     <module>javademo-springtaskquickstart</module>
+    <module>javademo-springaopquickstart</module>
   </modules>
 
   <dependencies>
