@@ -1,6 +1,6 @@
-package com.wlitsoft.springaopquickstart.aspect;
+package com.wlitsoft.javademo.springaopquickstart.aspect;
 
-import com.wlitsoft.springaopquickstart.service.ServiceBase;
+import com.wlitsoft.javademo.springaopquickstart.service.ServiceBase;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -13,7 +13,8 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class ServiceAspect {
 
-    @Pointcut("execution(* com.wlitsoft.springaopquickstart.service..process(..))")
+    //匹配 所有 ServiceBase 派生类的 process 方法。
+    @Pointcut("execution(* com.wlitsoft.javademo.springaopquickstart.service.ServiceBase.process(..))")
     public void processAspect() {
 
     }
