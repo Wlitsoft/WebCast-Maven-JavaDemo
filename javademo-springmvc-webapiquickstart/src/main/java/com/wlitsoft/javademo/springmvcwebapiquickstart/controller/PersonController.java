@@ -1,6 +1,6 @@
-package com.wlitsoft.springmvcwebapiquickstart.controller;
+package com.wlitsoft.javademo.springmvcwebapiquickstart.controller;
 
-import com.wlitsoft.springmvcwebapiquickstart.model.PersonModel;
+import com.wlitsoft.javademo.springmvcwebapiquickstart.model.PersonModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

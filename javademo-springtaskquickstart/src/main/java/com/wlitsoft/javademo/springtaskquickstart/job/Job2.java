@@ -1,4 +1,4 @@
-package com.wlitsoft.javademo.springtaskquickstart.jobs;
+package com.wlitsoft.javademo.springtaskquickstart.job;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.wlitsoft.springmvcwebapiquickstart.model;
+package com.wlitsoft.javademo.springmvcwebapiquickstart.model;
 
 /**
  * Created by liliang on 2017/3/27.

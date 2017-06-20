@@ -1,4 +1,4 @@
-package com.wlitsoft.springmvcwebapiquickstart.config;
+package com.wlitsoft.javademo.springmvcwebapiquickstart.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

@@ -1,4 +1,4 @@
-package com.wlitsoft.springmvcwebapiquickstart.config;
+package com.wlitsoft.javademo.springmvcwebapiquickstart.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.wlitsoft.springmvcwebapiquickstart")
+@ComponentScan("com.wlitsoft.javademo.springmvcwebapiquickstart")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
 }

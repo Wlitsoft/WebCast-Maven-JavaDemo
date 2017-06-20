@@ -1,4 +1,4 @@
-package com.wlitsoft.springmvcwebapiquickstart.controller;
+package com.wlitsoft.javademo.springmvcwebapiquickstart.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

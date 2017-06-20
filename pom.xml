@@ -22,6 +22,7 @@
     <module>javademo-springmvc-webapiquickstart</module>
     <module>javademo-springtaskquickstart</module>
     <module>javademo-springaopquickstart</module>
+    <module>javademo-mybatisquickstart</module>
   </modules>
 
   <dependencies>
