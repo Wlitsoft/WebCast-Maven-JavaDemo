@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+">
+
+    <!-- 导入 db 属性文件-->
+    <context:property-placeholder location="classpath*:db.properties" />
+
+    <!-- javademo库（连接池）, 创建一个驱动管理数据源的bean-->
+    <bean id="javademo_DataSourcePool" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${javademo.mysql.jdbc.driver}"/>
+        <!-- 基本属性 url、user、password -->
+        <property name="url" value="${javademo.mysql.jdbc.url}" />
+        <property name="username" value="${javademo.mysql.jdbc.uid}" />
+        <property name="password" value="${javademo.mysql.jdbc.pwd}" />
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="1" />
+        <property name="minIdle" value="1" />
+        <property name="maxActive" value="100" />
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="60000" />
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+        <property name="validationQuery" value="SELECT 888" />
+        <property name="testWhileIdle" value="true" />
+        <property name="testOnBorrow" value="false" />
+        <property name="testOnReturn" value="false" />
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="true" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="1000" />
+        <!-- 配置监控统计拦截的filters -->
+        <!--<property name="filters" value="stat" />-->
+    </bean>
+
+
+    <!--javademo库 sql会话工厂bean，指定数据源 -->
+    <bean id="javademo_SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- mybatis配置文本 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <!-- 指定数据源 -->
+        <property name="dataSource" ref="javademo_DataSourcePool" />
+        <!--指定sql映射xml文件的路径 -->
+        <property name="mapperLocations" value="classpath:mapper/javademo/*.xml"></property>
+    </bean>
+
+    <!-- javademo库 session模板化工具，线程安全 -->
+    <bean id="javademo_SqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="javademo_SqlSessionFactory" />
+    </bean>
+
+    <!--javademo库 自动扫描映射器接口 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--指定sql会话工厂，如果是只有单个会话工厂,可以不用配置自动发现-->
+        <property name="sqlSessionFactoryBeanName" value="javademo_SqlSessionFactory"></property>
+        <!--指定基础包，即自动扫描这个包以及它的子包下的所有映射接口类-->
+        <property name="basePackage" value="com.wlitsoft.javademo.mybatisquickstart.mapper.javademo"></property>
+        <!--扫描过虑：支持接口或注解 -->
+        <property name="markerInterface" value="com.wlitsoft.javademo.mybatisquickstart.mapper.BaseMapper"/>
+    </bean>
+
+</beans>
