@@ -24,6 +24,7 @@
     <module>javademo-springtaskquickstart</module>
     <module>javademo-springaopquickstart</module>
     <module>javademo-mybatisquickstart</module>
+    <module>javademo-quartzquickstart</module>
   </modules>
 
   <dependencies>
