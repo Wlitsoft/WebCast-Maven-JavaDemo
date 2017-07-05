@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job-scheduling-data xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://www.quartz-scheduler.org/xml/JobSchedulingData http://www.quartz-scheduler.org/xml/job_scheduling_data_2_0.xsd"
+                     version="2.0">
+    <schedule>
+        <job>
+            <name>Job1</name>
+            <group>DefaultGroup</group>
+            <description>工作1</description>
+            <job-class>com.wlitsoft.javademo.quartzquickstart.job.Job1</job-class>
+            <durability>true</durability>
+            <recover>false</recover>
+        </job>
+        <trigger>
+            <cron>
+                <name>Job1Trigger</name>
+                <group>DefaultGroup</group>
+                <description>每隔1秒执行一次</description>
+                <job-name>Job1</job-name>
+                <job-group>DefaultGroup</job-group>
+                <cron-expression>0/1 * * * * ?</cron-expression>
+            </cron>
+        </trigger>
+
+        <job>
+            <name>Job2</name>
+            <group>DefaultGroup</group>
+            <description>工作2</description>
+            <job-class>com.wlitsoft.javademo.quartzquickstart.job.Job2</job-class>
+            <durability>true</durability>
+            <recover>false</recover>
+        </job>
+        <trigger>
+            <cron>
+                <name>Job2Trigger</name>
+                <group>DefaultGroup</group>
+                <description>每隔10秒执行一次</description>
+                <job-name>Job2</job-name>
+                <job-group>DefaultGroup</job-group>
+                <cron-expression>0/10 * * * * ?</cron-expression>
+            </cron>
+        </trigger>
+    </schedule>
+</job-scheduling-data>
