@@ -5,7 +5,7 @@
   <groupId>com.wlitsoft</groupId>
   <artifactId>javademo-parent</artifactId>
   <version>1.0.0</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <name>javademo-parent</name>
   <url>http://maven.apache.org</url>
