@@ -15,13 +15,3 @@ matrix:
   include:
   - os: linux
     env: CUSTOM_JDK="oraclejdk8"
-  - os: linux
-    env: CUSTOM_JDK="oraclejdk7"
-  - os: linux
-    env: CUSTOM_JDK="openjdk7"
-
-before_install:
-  - echo 'MAVEN_OPTS="$MAVEN_OPTS -Xmx1024m -XX:MaxPermSize=512m -XX:+BytecodeVerificationLocal"' >> ~/.mavenrc
-  - cat ~/.mavenrc
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then jdk_switcher use "$CUSTOM_JDK"; fi
