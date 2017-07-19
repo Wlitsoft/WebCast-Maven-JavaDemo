@@ -16,4 +16,5 @@ matrix:
   - os: linux
     env: CUSTOM_JDK="oraclejdk8"
 
-test: off
+script:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
