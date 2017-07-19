@@ -15,3 +15,5 @@ matrix:
   include:
   - os: linux
     env: CUSTOM_JDK="oraclejdk8"
+
+test: off
